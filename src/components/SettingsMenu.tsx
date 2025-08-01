@@ -87,15 +87,13 @@ export const SettingsMenu = ({
 
   return (
     <div className="fixed inset-0 bg-black/50 z-50 flex items-end">
-      <div className="bg-card w-full h-[80vh] rounded-t-2xl p-4 tiktok-slide-up">
+      <div className="bg-card w-full h-[95vh] rounded-t-2xl p-4 tiktok-slide-up">
         <div className="flex items-center justify-between mb-6">
           <h2 className="text-xl font-semibold">{t.settings}</h2>
           <Button variant="ghost" size="icon" onClick={onClose}>
             <X className="h-5 w-5" />
           </Button>
         </div>
-
-        {/* Section Tabs */}
         <div className="flex space-x-2 mb-6">
           <Button
             variant={activeSection === 'currency' ? 'default' : 'outline'}
@@ -122,8 +120,6 @@ export const SettingsMenu = ({
             {t.performanceData}
           </Button>
         </div>
-
-        {/* Period Tabs (for home and performance sections) */}
         {(activeSection === 'home' || activeSection === 'performance') && (
           <div className="flex space-x-2 mb-4">
             <Button
@@ -144,7 +140,6 @@ export const SettingsMenu = ({
         )}
 
         <div className="tiktok-scroll overflow-y-auto max-h-[60vh]">
-          {/* Currency Section */}
           {activeSection === 'currency' && (
             <Card className="p-4">
               <Label htmlFor="currency-select">{t.currency}</Label>
@@ -162,8 +157,6 @@ export const SettingsMenu = ({
               </Select>
             </Card>
           )}
-
-          {/* Home Data Section */}
           {activeSection === 'home' && (
             <div className="space-y-4">
               <Card className="p-4">
@@ -205,7 +198,6 @@ export const SettingsMenu = ({
             </div>
           )}
 
-          {/* Performance Data Section */}
           {activeSection === 'performance' && (
             <div className="space-y-4">
               <Card className="p-4">
@@ -266,7 +258,7 @@ export const SettingsMenu = ({
           )}
         </div>
 
-        <div className="mt-6">
+        <div className="mt-2">
           <Button onClick={onClose} className="w-full">
             {t.save}
           </Button>

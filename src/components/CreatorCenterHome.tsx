@@ -64,14 +64,12 @@ export const CreatorCenterHome = ({ currency, language, data, activePeriod, onPe
 
   return (
     <div className="flex-1 bg-background tiktok-scroll overflow-y-auto">
-      {/* Performance Data Section */}
       <div className="p-4">
         <div className="flex items-center justify-between mb-4 cursor-pointer" onClick={onPerformanceClick}>
           <h2 className="text-xl font-semibold">{t.performanceData}</h2>
           <ChevronRight className="h-5 w-5 text-muted-foreground" />
         </div>
         
-        {/* Time Period Tabs */}
         <div className="flex space-x-2 mb-4">
           <Button 
             variant={activePeriod === 'today' ? 'secondary' : 'outline'} 
@@ -91,7 +89,6 @@ export const CreatorCenterHome = ({ currency, language, data, activePeriod, onPe
           </Button>
         </div>
 
-        {/* Metrics Cards */}
         <div className="grid grid-cols-3 gap-4 mb-6">
           <div className="text-center">
             <p className="text-sm text-muted-foreground mb-1">{t.gmv}</p>
@@ -108,7 +105,6 @@ export const CreatorCenterHome = ({ currency, language, data, activePeriod, onPe
         </div>
       </div>
 
-      {/* Toolkit Section */}
       <div className="p-4">
         <div className="flex items-center justify-between mb-4">
           <h2 className="text-xl font-semibold">{t.toolkit}</h2>
@@ -149,7 +145,6 @@ export const CreatorCenterHome = ({ currency, language, data, activePeriod, onPe
         </div>
       </div>
 
-      {/* Growth Section */}
       <div className="p-4">
         <div className="flex items-center justify-between mb-4">
           <h2 className="text-xl font-semibold">{t.increaseAudience}</h2>

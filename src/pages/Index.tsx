@@ -28,7 +28,6 @@ const Index = () => {
   const [language, setLanguage] = useState<'pt' | 'en'>('pt');
   const [activePeriod, setActivePeriod] = useState<'today' | 'last7days'>('today');
 
-  // Home screen data - separate for each period
   const [homeDataToday, setHomeDataToday] = useState({
     gmv: '373',
     commission: '45',
@@ -40,10 +39,9 @@ const Index = () => {
     gmv: '2,610',
     commission: '315',
     views: '389.2K',
-    campaignValue: '490,00'
+    campaignValue: '70,00'
   });
 
-  // Performance screen data - separate for each period
   const [performanceDataToday, setPerformanceDataToday] = useState({
     gmv: '59,85',
     itemsSold: '2',
@@ -62,7 +60,6 @@ const Index = () => {
     productClicks: '812'
   });
 
-  // Products data
   const [products, setProducts] = useState<Product[]>([
     {
       id: '1',
@@ -90,7 +87,6 @@ const Index = () => {
     }
   ]);
 
-  // Change language when currency changes
   useEffect(() => {
     setLanguage(currency === 'R$' ? 'pt' : 'en');
   }, [currency]);
@@ -115,7 +111,6 @@ const Index = () => {
     }
   };
 
-  // Get current data based on active period
   const getCurrentHomeData = () => {
     return activePeriod === 'today' ? homeDataToday : homeData7Days;
   };

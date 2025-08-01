@@ -83,7 +83,6 @@ export const PerformanceData = ({
   return (
     <div className="flex-1 bg-background tiktok-scroll overflow-y-auto">
       <div className="p-4">
-        {/* Time Period Controls */}
         <div className="flex items-center justify-between mb-4">
           <div className="flex space-x-2">
             <Button 
@@ -111,16 +110,13 @@ export const PerformanceData = ({
           </div>
         </div>
 
-        {/* Date */}
         <p className="text-sm text-muted-foreground mb-4">Jul 30, 2025 (GMT-3)</p>
 
-        {/* Main Data Section */}
         <h2 className="text-lg font-semibold mb-4 flex items-center">
           {t.mainData}
           <span className="ml-2 text-muted-foreground">ℹ️</span>
         </h2>
 
-        {/* Main Metrics Grid */}
         <div className="grid grid-cols-3 gap-4 mb-6">
           <div>
             <p className="text-sm text-muted-foreground mb-1">{t.gmv}</p>
@@ -139,7 +135,6 @@ export const PerformanceData = ({
           </div>
         </div>
 
-        {/* Secondary Metrics Grid */}
         <div className="grid grid-cols-3 gap-4 mb-6">
           <div>
             <p className="text-sm text-muted-foreground mb-1">{t.commissionBase}</p>
@@ -158,7 +153,6 @@ export const PerformanceData = ({
           </div>
         </div>
 
-        {/* Content Type Tabs */}
         <div className="flex space-x-4 mb-6">
           <div className="flex flex-col items-center">
             <div className="w-8 h-8 bg-muted rounded-lg flex items-center justify-center mb-1">
@@ -181,7 +175,6 @@ export const PerformanceData = ({
           </div>
         </div>
 
-        {/* Product Performance Section */}
         <div className="flex items-center justify-between mb-4">
           <h3 className="text-lg font-semibold">{t.productPerformance}</h3>
           <div className="flex items-center text-muted-foreground">
@@ -190,7 +183,6 @@ export const PerformanceData = ({
           </div>
         </div>
 
-        {/* Products List */}
         <div className="space-y-3 mb-6">
           {products.map((product) => (
             <Card key={product.id} className="p-3 cursor-pointer" onClick={() => onEditProduct?.(product.id)}>
@@ -222,7 +214,6 @@ export const PerformanceData = ({
           ))}
         </div>
 
-        {/* Content Performance Section */}
         <div className="border-t border-border pt-4">
           <h3 className="text-lg font-semibold">{t.contentPerformance}</h3>
         </div>
