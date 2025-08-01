@@ -1,0 +1,144 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* TikTok Shop Design System - Colors MUST be HSL */
+
+@layer base {
+  :root {
+    /* TikTok Brand Colors */
+    --tiktok-primary: 344 100% 69%; /* TikTok Pink #FF3B5C */
+    --tiktok-secondary: 180 1% 10%; /* TikTok Dark */
+    --tiktok-bg: 0 0% 98%; /* Light Background */
+    --tiktok-card: 0 0% 100%; /* White Cards */
+    --tiktok-text: 0 0% 7%; /* Almost Black Text */
+    --tiktok-text-secondary: 0 0% 45%; /* Gray Text */
+    --tiktok-border: 0 0% 92%; /* Light Gray Border */
+    --tiktok-success: 120 100% 25%; /* Green */
+    --tiktok-warning: 45 100% 50%; /* Orange */
+    
+    /* Semantic tokens mapping to TikTok colors */
+    --background: var(--tiktok-bg);
+    --foreground: var(--tiktok-text);
+    --card: var(--tiktok-card);
+    --card-foreground: var(--tiktok-text);
+    --popover: var(--tiktok-card);
+    --popover-foreground: var(--tiktok-text);
+    --primary: var(--tiktok-primary);
+    --primary-foreground: 0 0% 100%;
+    --secondary: var(--tiktok-border);
+    --secondary-foreground: var(--tiktok-text);
+    --muted: var(--tiktok-border);
+    --muted-foreground: var(--tiktok-text-secondary);
+    --accent: var(--tiktok-primary);
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: var(--tiktok-border);
+    --input: var(--tiktok-border);
+    --ring: var(--tiktok-primary);
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground overflow-hidden;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  }
+  
+  /* Mobile-first fullscreen experience */
+  #root {
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  /* TikTok-like animations */
+  .tiktok-fade-in {
+    animation: tiktokFadeIn 0.3s ease-out;
+  }
+  
+  .tiktok-slide-up {
+    animation: tiktokSlideUp 0.3s ease-out;
+  }
+  
+  /* Custom scrollbar like TikTok */
+  .tiktok-scroll::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+  }
+}
+
+@keyframes tiktokFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes tiktokSlideUp {
+  from { 
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to { 
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
