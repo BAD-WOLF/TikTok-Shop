@@ -1,9 +1,10 @@
-import { useState } from "react";
-import { X, Upload } from "lucide-react";
+import { useState, useEffect } from "react";
+import { X, Upload, CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
+import { useToast } from "@/hooks/use-toast";
 
 interface Product {
   id: string;
@@ -29,6 +30,7 @@ export const ProductEditModal = ({
   onSave,
   language
 }: ProductEditModalProps) => {
+  const { toast } = useToast();
   const [editedProduct, setEditedProduct] = useState<Product>(
     product || {
       id: '',
@@ -39,6 +41,13 @@ export const ProductEditModal = ({
       sold: 0
     }
   );
+  
+  // Reset product when modal opens with a new product
+  useEffect(() => {
+    if (isOpen && product) {
+      setEditedProduct(product);
+    }
+  }, [isOpen, product]);
 
   const texts = {
     pt: {
@@ -46,6 +55,7 @@ export const ProductEditModal = ({
       productName: "Nome do Produto",
       productImage: "Imagem do Produto",
       uploadImage: "Carregar Imagem",
+      removeImage: "Remover Imagem",
       gmv: "GMV",
       commission: "Comissão",
       itemsSold: "Itens Vendidos",
@@ -57,6 +67,7 @@ export const ProductEditModal = ({
       productName: "Product Name",
       productImage: "Product Image",
       uploadImage: "Upload Image",
+      removeImage: "Remove Image",
       gmv: "GMV",
       commission: "Commission",
       itemsSold: "Items Sold",
@@ -81,9 +92,31 @@ export const ProductEditModal = ({
           ...prev,
           image: e.target?.result as string
         }));
+        
+        // Mostrar notificação de sucesso
+        toast({
+          title: language === 'pt' ? 'Imagem carregada' : 'Image uploaded',
+          description: language === 'pt' ? 'A imagem foi carregada com sucesso' : 'The image was successfully uploaded',
+          variant: 'default',
+        });
       };
       reader.readAsDataURL(file);
+      // Reset the input value to allow selecting the same file again
+      e.target.value = '';
     }
+  };
+  
+  const handleRemoveImage = () => {
+    setEditedProduct(prev => ({
+      ...prev,
+      image: ''
+    }));
+    
+    toast({
+      title: language === 'pt' ? 'Imagem removida' : 'Image removed',
+      description: language === 'pt' ? 'A imagem foi removida com sucesso' : 'The image was successfully removed',
+      variant: 'default',
+    });
   };
 
   if (!isOpen) return null;
@@ -126,6 +159,7 @@ export const ProductEditModal = ({
                   accept="image/*"
                   onChange={handleImageUpload}
                   className="hidden"
+                  key={editedProduct.image} /* Adiciona uma key para forçar a recriação do componente quando a imagem muda */
                 />
                 <Button
                   variant="outline"
@@ -135,6 +169,17 @@ export const ProductEditModal = ({
                   <Upload className="h-4 w-4 mr-2" />
                   {t.uploadImage}
                 </Button>
+                
+                {editedProduct.image && (
+                  <Button
+                    variant="destructive"
+                    size="sm"
+                    onClick={handleRemoveImage}
+                  >
+                    <X className="h-4 w-4 mr-2" />
+                    {t.removeImage}
+                  </Button>
+                )}
               </div>
             </div>
           </div>
