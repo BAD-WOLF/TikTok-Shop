@@ -11,10 +11,10 @@ import AnalyticsPng from './png/analytics.png'; // Ícone de gráfico/analytics
 import EyePng from './png/eye.png'; // Ícone de olho/visualizações
 import HeartPng from './png/heart.png'; // Ícone de coração/curtidas
 import SharePng from './png/share.png'; // Ícone de compartilhamento
-import PackagePng from './png/package.png'; // Ícone de pacote/produto
+import PackagePng from './png/users.png'; // Ícone de pacote/produto
 import PlayPng from './png/play.png'; // Ícone de play/vídeo
 import TvPng from './png/tv.png'; // Ícone de TV/live
-import TestePng from './png/teste.png'; // Ícone de teste
+// import TestePng from './png/teste.png'; // Ícone de teste
 
 // Wrapper components para manter a interface consistente
 export const TikTokShoppingBag = ({ className = "h-2 w-2" }: { className?: string }) => (
@@ -71,6 +71,6 @@ export const TikTokTv = ({ className = "h-8 w-8" }: { className?: string }) => (
   <img src={TvPng} alt="TV" className={className} />
 );
 
-export const TikTokTeste = ({ className = "h-4 w-4" }: { className?: string }) => (
-  <img src={TestePng} alt="Teste" className={className} />
-);
+// export const TikTokTeste = ({ className = "h-4 w-4" }: { className?: string }) => (
+//   <img src={TestePng} alt="Teste" className={className} />
+// );

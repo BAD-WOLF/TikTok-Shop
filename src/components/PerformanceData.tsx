@@ -86,20 +86,24 @@ export const PerformanceData = ({
   // Função para gerar data atual e range
   const getCurrentDateRange = () => {
     const now = new Date();
-    const currentDate = now.toLocaleDateString('pt-BR', {
-      day: '2-digit',
-      month: 'short',
-      year: 'numeric'
-    });
+    const formatDate = (date: Date) => {
+      const monthNames = language === 'pt' 
+        ? ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez']
+        : ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+      
+      const day = date.getDate();
+      const month = monthNames[date.getMonth()];
+      const year = date.getFullYear();
+      
+      return `${month} ${day}, ${year}`;
+    };
+    
+    const currentDate = formatDate(now);
     
     if (activePeriod === 'last7days') {
       const sevenDaysAgo = new Date(now);
       sevenDaysAgo.setDate(now.getDate() - 7);
-      const startDate = sevenDaysAgo.toLocaleDateString('pt-BR', {
-        day: '2-digit',
-        month: 'short',
-        year: 'numeric'
-      });
+      const startDate = formatDate(sevenDaysAgo);
       return `${startDate} - ${currentDate} (GMT-3)`;
     }
     
@@ -244,19 +248,19 @@ export const PerformanceData = ({
                   className="w-12 h-12 rounded-lg object-cover"
                 />
                 <div className="flex-1">
-                  <h4 className="font-medium text-sm mb-1">{product.name}</h4>
-                  <div className="flex justify-between items-center">
+                  <h4 className="font-medium text-[10px] mb-1">{product.name}</h4>
+                  <div className="flex justify-between items-end">
                     <div>
-                      <p className="text-sm text-muted-foreground">GMV</p>
-                      <p className="font-bold">{currency} {product.gmv}</p>
+                      <p className="text-[9px] text-muted-foreground leading-tight">GMV<br/>&nbsp;</p>
+                      <p className="font-semibold text-xs mt-1">{currency} {product.gmv}</p>
                     </div>
                     <div>
-                      <p className="text-sm text-muted-foreground">{t.estimatedCommission}</p>
-                      <p className="font-bold">{currency} {product.commission}</p>
+                      <p className="text-[9px] text-muted-foreground leading-tight">Comissão<br/>estimada</p>
+                      <p className="font-semibold text-xs mt-1">{currency} {product.commission}</p>
                     </div>
                     <div>
-                      <p className="text-sm text-muted-foreground">{t.itemsSold}</p>
-                      <p className="font-bold">{product.sold}</p>
+                      <p className="text-[9px] text-muted-foreground leading-tight">Itens vendidos<br/>&nbsp;</p>
+                      <p className="font-semibold text-xs mt-1">{product.sold}</p>
                     </div>
                   </div>
                 </div>

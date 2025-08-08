@@ -1,4 +1,5 @@
 import React from 'react';
+import CreatePng from './icons/png/create.png';
 
 // Importar ícones da pasta icons
 export {
@@ -24,8 +25,5 @@ export const TikTokVideo = ({ className = "h-5 w-5" }: { className?: string }) =
 
 
 export const TikTokCreate = ({ className = "h-6 w-6" }: { className?: string }) => (
-  <svg className={className} viewBox="0 0 24 24" fill="currentColor">
-    <path d="M9 12l3.5 2 8.5-6v12H3V8l6 4z"/>
-    <path d="M3 7a1 1 0 011-1h12a1 1 0 011 1v1l4-2v8l-4-2v1a1 1 0 01-1 1H4a1 1 0 01-1-1V7z"/>
-  </svg>
+  <img src={CreatePng} alt="Create" className={className} />
 );
