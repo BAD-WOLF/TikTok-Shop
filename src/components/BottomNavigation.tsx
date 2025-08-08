@@ -30,21 +30,21 @@ export const BottomNavigation = ({ activeTab, onTabChange, language }: BottomNav
   ];
 
   return (
-    <nav className="bg-card border-t border-border px-4 py-2">
+    <nav className="bg-card border-t border-border px-4 py-3">
       <div className="flex justify-around items-center">
         {tabs.map(({ id, icon: Icon, label }) => (
           <button
             key={id}
             onClick={() => onTabChange(id)}
             className={cn(
-              "flex flex-col items-center py-2 px-3 rounded-lg transition-colors",
+              "flex flex-col items-center py-3 px-4 rounded-lg transition-colors",
               activeTab === id
                 ? "text-primary"
                 : "text-muted-foreground hover:text-foreground"
             )}
           >
-            <Icon className="h-5 w-5 mb-1" />
-            <span className="text-xs">{label}</span>
+            <Icon className="h-6 w-6 mb-2" />
+            <span className="text-sm">{label}</span>
           </button>
         ))}
       </div>
