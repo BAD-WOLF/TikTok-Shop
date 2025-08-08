@@ -3,7 +3,7 @@ import { TikTokHeader } from "@/components/TikTokHeader";
 import { CreatorCenterHome } from "@/components/CreatorCenterHome";
 import { PerformanceData } from "@/components/PerformanceData";
 import { BottomNavigation } from "@/components/BottomNavigation";
-import { SettingsMenu } from "@/components/SettingsMenu";
+import SettingsMenu from "@/components/SettingsMenu";
 import { ProductEditModal } from "@/components/ProductEditModal";
 import carpetImage from "@/assets/carpet-purple.png";
 import headphonesImage from "@/assets/headphones-silver.png";

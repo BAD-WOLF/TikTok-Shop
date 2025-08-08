@@ -20,7 +20,7 @@ interface SettingsMenuProps {
   language: 'pt' | 'en';
 }
 
-export const SettingsMenu = ({
+export default function SettingsMenu({
   isOpen,
   onClose,
   currency,
@@ -32,7 +32,7 @@ export const SettingsMenu = ({
   onDataChange,
   onPerformanceDataChange,
   language
-}: SettingsMenuProps) => {
+}: SettingsMenuProps) {
   const [activeSection, setActiveSection] = useState<'currency' | 'home' | 'performance'>('currency');
   const [activePeriod, setActivePeriod] = useState<'today' | 'last7days'>('today');
 
@@ -256,6 +256,7 @@ export const SettingsMenu = ({
               </Card>
             </div>
           )}
+
         </div>
 
         <div className="mt-2">

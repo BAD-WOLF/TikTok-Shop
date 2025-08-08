@@ -109,8 +109,10 @@ export const PerformanceData = ({
   // Função para determinar cor do índice
   const getPercentageColor = (percentage: string) => {
     const numValue = parseFloat(percentage.replace('%', '').replace(',', '.'));
-    return numValue >= 0 ? 'text-[#22c55e]' : 'text-red-500';
+    return numValue >= 0 ? 'text-blue-400' : 'text-red-500';
   };
+
+
 
   return (
     <div className="flex-1 bg-background tiktok-scroll overflow-y-auto">
@@ -118,25 +120,25 @@ export const PerformanceData = ({
         <div className="flex items-center justify-between mb-3">
           <div className="flex space-x-2">
             <Button 
-              variant={activePeriod === 'today' ? 'outline' : 'ghost'} 
+              variant={activePeriod === 'today' ? 'default' : 'outline'} 
               size="sm" 
-              className={`text-sm px-4 py-2 ${activePeriod === 'today' ? 'bg-foreground text-background' : ''}`}
+              className={`text-xs px-2 py-0.5 h-6 rounded-full ${activePeriod === 'today' ? 'bg-black text-white hover:bg-gray-800' : 'bg-muted text-muted-foreground'}`}
               onClick={() => onPeriodChange('today')}
             >
               {t.today}
             </Button>
-            <Button variant="ghost" size="sm" className="text-sm px-4 py-2">
+            <Button variant="outline" size="sm" className="text-xs px-2 py-0.5 h-6 rounded-full bg-muted text-muted-foreground">
               {t.yesterday}
             </Button>
             <Button 
-              variant={activePeriod === 'last7days' ? 'outline' : 'ghost'} 
+              variant={activePeriod === 'last7days' ? 'default' : 'outline'} 
               size="sm"
-              className={`text-sm px-4 py-2 ${activePeriod === 'last7days' ? 'bg-foreground text-background' : ''}`}
+              className={`text-xs px-2 py-0.5 h-6 rounded-full ${activePeriod === 'last7days' ? 'bg-black text-white hover:bg-gray-800' : 'bg-muted text-muted-foreground'}`}
               onClick={() => onPeriodChange('last7days')}
             >
               {t.sevenDays}
             </Button>
-            <Button variant="ghost" size="sm" className="text-sm px-4 py-2">
+            <Button variant="outline" size="sm" className="text-xs px-2 py-0.5 h-6 rounded-full bg-muted text-muted-foreground">
               {t.customize}
             </Button>
           </div>
@@ -189,14 +191,15 @@ export const PerformanceData = ({
           </div>
         </div>
 
-        <div className="flex justify-center mb-6">
-          <Button variant="ghost" className="text-base px-6 py-3 text-muted-foreground">
-            {t.viewTrends} 📈
+        <div className="flex justify-center mb-0">
+          <Button variant="ghost" className="text-xs px-3 py-1 text-muted-foreground flex items-center">
+            <TikTokAnalytics className="h-3 w-3 mr-1" />
+            {t.viewTrends}
           </Button>
         </div>
 
         {/* Divisão horizontal */}
-         <div className="border-t-8 border-gray-100 my-6 -mx-6"></div>
+         <div className="border-t-8 border-gray-100 mt-1 mb-4 -mx-6"></div>
 
         <div className="flex space-x-4 mb-4">
           <div className="flex flex-col items-center">

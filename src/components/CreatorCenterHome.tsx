@@ -70,11 +70,11 @@ export const CreatorCenterHome = ({ currency, language, data, activePeriod, onPe
           <TikTokChevronRight className="h-4 w-4 text-muted-foreground" />
         </div>
         
-        <div className="flex space-x-2 mb-3">
+        <div className="flex mb-3">
           <Button 
             variant={activePeriod === 'today' ? 'secondary' : 'outline'} 
             size="sm" 
-            className={`text-xs px-3 py-1 ${activePeriod === 'today' ? 'bg-muted text-muted-foreground' : ''}`}
+            className={`text-xs px-3 py-1 rounded-r-none border-r-0 ${activePeriod === 'today' ? 'bg-muted text-muted-foreground' : ''}`}
             onClick={() => onPeriodChange('today')}
           >
             {t.today}
@@ -90,23 +90,23 @@ export const CreatorCenterHome = ({ currency, language, data, activePeriod, onPe
         </div>
 
         <div className="grid grid-cols-3 gap-3 mb-4">
-          <div className="text-center">
+          <div className="text-left">
             <p className="text-xs text-muted-foreground mb-1">{t.gmv}</p>
-            <p className="text-lg font-bold">{currency} {data.gmv}</p>
+            <p className="text-xl font-bold">{currency} {data.gmv}</p>
           </div>
-          <div className="text-center">
+          <div className="text-left">
             <p className="text-xs text-muted-foreground mb-1">{t.estimatedCommission}</p>
-            <p className="text-lg font-bold">{currency} {data.commission}</p>
+            <p className="text-xl font-bold">{currency} {data.commission}</p>
           </div>
-          <div className="text-center">
+          <div className="text-left">
             <p className="text-xs text-muted-foreground mb-1">{t.views}</p>
-            <p className="text-lg font-bold">{data.views}</p>
+            <p className="text-xl font-bold">{data.views}</p>
           </div>
         </div>
       </div>
 
       {/* Horizontal division */}
-      <div className="border-t-8 border-gray-100 -mx-6 my-6"></div>
+      <div className="border-t-8 border-gray-100 -mx-6 mb-6"></div>
 
       <div className="p-3">
         <div className="flex items-center justify-between mb-3">
