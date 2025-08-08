@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">TikTok Shop</string>
+    <string name="title_activity_main">TikTok Shop</string>
+    <string name="package_name">com.vieira.tiktokshop</string>
+    <string name="custom_url_scheme">com.vieira.tiktokshop</string>
+</resources>
