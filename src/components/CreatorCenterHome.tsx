@@ -1,6 +1,7 @@
 import { TikTokChevronRight, TikTokShoppingBag, TikTokVideo, TikTokDollarSign, TikTokGift, TikTokMail, TikTokUsers, TikTokCreate } from "./TikTokIcons";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { formatCurrency } from "@/lib/currency";
 
 interface CreatorCenterHomeProps {
   currency: string;
@@ -92,11 +93,11 @@ export const CreatorCenterHome = ({ currency, language, data, activePeriod, onPe
         <div className="grid grid-cols-3 gap-3 mb-4">
           <div className="text-left">
             <p className="text-xs text-muted-foreground mb-1">{t.gmv}</p>
-            <p className="text-xl font-bold">{currency} {data.gmv}</p>
+            <p className="text-xl font-bold">{formatCurrency(currency, data.gmv)}</p>
           </div>
           <div className="text-left">
             <p className="text-xs text-muted-foreground mb-1">{t.estimatedCommission}</p>
-            <p className="text-xl font-bold">{currency} {data.commission}</p>
+            <p className="text-xl font-bold">{formatCurrency(currency, data.commission)}</p>
           </div>
           <div className="text-left">
             <p className="text-xs text-muted-foreground mb-1">{t.views}</p>
@@ -168,7 +169,7 @@ export const CreatorCenterHome = ({ currency, language, data, activePeriod, onPe
             {t.wantToGrowMore} 📈
           </p>
           <div className="flex items-center justify-between">
-            <span className="text-xs text-primary">{currency} {data.campaignValue}</span>
+            <span className="text-xs text-primary">{formatCurrency(currency, data.campaignValue)}</span>
             <span className="text-xs text-muted-foreground">{t.ends}</span>
           </div>
         </Card>

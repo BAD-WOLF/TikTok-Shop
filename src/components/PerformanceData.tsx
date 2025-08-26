@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { TikTokChevronRight, TikTokAnalytics, TikTokEye, TikTokHeart, TikTokShare } from "./TikTokIcons";
 import { TikTokPackage, TikTokPlay, TikTokTv } from "./icons";
+import { formatCurrency } from "@/lib/currency";
 
 interface Product {
   id: string;
@@ -161,7 +162,7 @@ export const PerformanceData = ({
         <div className="flex mb-4">
           <div className="flex-1 text-center">
             <p className="text-xs text-muted-foreground mb-1">{t.gmv}</p>
-            <p className="text-lg font-bold mb-1">{currency} {data.gmv}</p>
+            <p className="text-lg font-bold mb-1">{formatCurrency(currency, data.gmv)}</p>
             <p className={`text-xs ${getPercentageColor('+70.74%')}`}>+70.74%</p>
           </div>
           <div className="flex-1 text-center">
@@ -171,7 +172,7 @@ export const PerformanceData = ({
           </div>
           <div className="flex-1 text-center">
             <p className="text-xs text-muted-foreground mb-1">{t.estimatedCommission}</p>
-            <p className="text-lg font-bold mb-1">{currency} {data.estimatedCommission}</p>
+            <p className="text-lg font-bold mb-1">{formatCurrency(currency, data.estimatedCommission)}</p>
             <p className={`text-xs ${getPercentageColor('+32.09%')}`}>+32.09%</p>
           </div>
         </div>
@@ -180,7 +181,7 @@ export const PerformanceData = ({
         <div className="flex mb-4">
           <div className="flex-1 text-center">
             <p className="text-xs text-muted-foreground mb-1">{t.commissionBase}</p>
-            <p className="text-lg font-bold mb-1">{currency} {data.commissionBase}</p>
+            <p className="text-lg font-bold mb-1">{formatCurrency(currency, data.commissionBase)}</p>
             <p className={`text-xs ${getPercentageColor('+89.33%')}`}>+89.33%</p>
           </div>
           <div className="flex-1 text-center">
@@ -252,11 +253,11 @@ export const PerformanceData = ({
                   <div className="flex justify-between items-end">
                     <div>
                       <p className="text-[9px] text-muted-foreground leading-tight">GMV<br/>&nbsp;</p>
-                      <p className="font-semibold text-xs mt-1">{currency} {product.gmv}</p>
+                      <p className="font-semibold text-xs mt-1">{formatCurrency(currency, product.gmv)}</p>
                     </div>
                     <div>
                       <p className="text-[9px] text-muted-foreground leading-tight">Comissão<br/>estimada</p>
-                      <p className="font-semibold text-xs mt-1">{currency} {product.commission}</p>
+                      <p className="font-semibold text-xs mt-1">{formatCurrency(currency, product.commission)}</p>
                     </div>
                     <div>
                       <p className="text-[9px] text-muted-foreground leading-tight">Itens vendidos<br/>&nbsp;</p>
