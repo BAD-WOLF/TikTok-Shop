@@ -1,6 +1,8 @@
 import { TikTokChevronRight, TikTokShoppingBag, TikTokVideo, TikTokDollarSign, TikTokGift, TikTokMail, TikTokUsers, TikTokCreate } from "./TikTokIcons";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Search, Camera } from "lucide-react";
 import { formatCurrency } from "@/lib/currency";
 
 interface CreatorCenterHomeProps {
@@ -66,6 +68,23 @@ export const CreatorCenterHome = ({ currency, language, data, activePeriod, onPe
   return (
     <div className="flex-1 bg-background tiktok-scroll overflow-y-auto">
       <div className="p-3">
+        {/* Search Bar - Only visible when language is English */}
+        {language === 'en' && (
+          <div className="relative mb-4">
+            <div className="flex items-center bg-muted rounded-lg px-3 py-0.1">
+              <Search className="h-9 w-9 text-muted-foreground mr-2" />
+              <Input 
+                placeholder="Zooone Eye Vitamins"
+                className="border-0 bg-transparent p-0 text-sm placeholder:text-muted-foreground focus-visible:ring-0 focus-visible:ring-offset-0"
+                readOnly
+              />
+              <Camera className="h-9 w-9 text-muted-foreground ml-2" />
+              <div className="w-px h-4 bg-border mx-2"></div>
+              <span className="text-sm font-medium">Search</span>
+            </div>
+          </div>
+        )}
+        
         <div className="flex items-center justify-between mb-3 cursor-pointer" onClick={onPerformanceClick}>
           <h2 className="text-lg font-semibold">{t.performanceData}</h2>
           <TikTokChevronRight className="h-4 w-4 text-muted-foreground" />
