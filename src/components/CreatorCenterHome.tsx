@@ -3,7 +3,7 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Search, Camera } from "lucide-react";
-import { formatCurrency } from "@/lib/currency";
+import { formatCurrency, formatCurrencyWithClass } from "@/lib/currency.tsx";
 
 interface CreatorCenterHomeProps {
   currency: string;
@@ -112,15 +112,15 @@ export const CreatorCenterHome = ({ currency, language, data, activePeriod, onPe
         <div className="grid grid-cols-3 gap-3 mb-4">
           <div className="text-left">
             <p className="text-xs text-muted-foreground mb-1">{t.gmv}</p>
-            <p className="text-xl font-bold">{formatCurrency(currency, data.gmv)}</p>
+            <p className="text-xl font-bold">{formatCurrencyWithClass(currency, data.gmv)}</p>
           </div>
           <div className="text-left">
             <p className="text-xs text-muted-foreground mb-1">{t.estimatedCommission}</p>
-            <p className="text-xl font-bold">{formatCurrency(currency, data.commission)}</p>
+            <p className="text-xl font-bold">{formatCurrencyWithClass(currency, data.commission)}</p>
           </div>
           <div className="text-left">
             <p className="text-xs text-muted-foreground mb-1">{t.views}</p>
-            <p className="text-xl font-bold">{data.views}</p>
+            <p className="text-xl font-bold"><span className="numeric-text">{data.views}</span></p>
           </div>
         </div>
       </div>
@@ -188,7 +188,7 @@ export const CreatorCenterHome = ({ currency, language, data, activePeriod, onPe
             {t.wantToGrowMore} 📈
           </p>
           <div className="flex items-center justify-between">
-            <span className="text-xs text-primary">{formatCurrency(currency, data.campaignValue)}</span>
+            <span className="text-xs text-primary">{formatCurrencyWithClass(currency, data.campaignValue)}</span>
             <span className="text-xs text-muted-foreground">{t.ends}</span>
           </div>
         </Card>
