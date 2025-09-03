@@ -1,5 +1,5 @@
 import React from 'react';
-import CreatePng from './icons/png/create.png';
+import CreatePng from './icons/create.png';
 
 // Importar ícones da pasta icons
 export {

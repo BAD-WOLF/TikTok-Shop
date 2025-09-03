@@ -1,6 +1,6 @@
 import { Home, ShoppingBag } from "lucide-react";
 import { cn } from "@/lib/utils";
-import growthIcon from "@/components/icons/png/growth.png";
+import { TikTokAnalytics } from "@/components/icons";
 
 interface BottomNavigationProps {
   activeTab: 'home' | 'products' | 'growth';
@@ -45,7 +45,7 @@ export const BottomNavigation = ({ activeTab, onTabChange, language }: BottomNav
             )}
           >
             {Icon === 'growth' ? (
-              <img src={growthIcon} alt="Growth" className="h-3 w-3 mb-0.5" />
+              <TikTokAnalytics className="h-3 w-3 mb-0.5" />
             ) : (
               <Icon className="h-3 w-3 mb-0.5" />
             )}
