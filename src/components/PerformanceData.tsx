@@ -216,7 +216,6 @@ export const PerformanceData = ({
           <div className="flex flex-col items-center">
             <div className="w-12 h-12 bg-muted rounded-lg flex items-center justify-center mb-2 relative">
               <TikTokPlay className="w-8 h-8" />
-              <span className="absolute -top-1 -right-1 w-2 h-2 bg-primary rounded-full"></span>
             </div>
             <span className="text-sm">{t.video}</span>
           </div>
