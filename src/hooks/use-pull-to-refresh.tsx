@@ -43,7 +43,7 @@ export const usePullToRefresh = ({
     if (container.scrollTop === 0) {
       setStartY(e.touches[0].clientY);
       setIsPulling(true);
-      setShowAnimation(true);
+      // Não ativa a animação imediatamente, só quando houver movimento
       
       // Limpa timeout anterior se existir
       if (animationTimeoutRef.current) {
@@ -60,14 +60,23 @@ export const usePullToRefresh = ({
     const deltaY = currentY - startY;
     
     if (deltaY > 0) {
-      // Aplica resistência para tornar o movimento mais suave
-      const distance = Math.min(deltaY / resistance, threshold * 1.5);
-      setPullDistance(distance);
-      
-      // Previne o scroll padrão quando puxando
-      e.preventDefault();
+      // Verifica se o container está realmente no topo
+      const container = e.currentTarget as HTMLElement;
+      if (container && container.scrollTop === 0) {
+        // Ativa a animação apenas quando há movimento de pull real
+        if (!showAnimation) {
+          setShowAnimation(true);
+        }
+        
+        // Aplica resistência para tornar o movimento mais suave
+        const distance = Math.min(deltaY / resistance, threshold * 1.5);
+        setPullDistance(distance);
+        
+        // Previne o scroll padrão apenas quando fazendo pull no topo
+        e.preventDefault();
+      }
     }
-  }, [isPulling, startY, threshold, resistance, enabled, isRefreshing]);
+  }, [isPulling, startY, threshold, resistance, enabled, isRefreshing, showAnimation]);
 
   const handleTouchEnd = useCallback(async () => {
     if (!isPulling || !enabled) return;

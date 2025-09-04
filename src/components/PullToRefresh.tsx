@@ -28,7 +28,7 @@ export const PullToRefresh: React.FC<PullToRefreshProps> = ({
   });
 
   return (
-    <div className={cn('relative overflow-hidden', className)}>
+    <div className={cn('relative overflow-y-auto', className)}>
       {/* Container principal com o conteúdo */}
       <div {...containerProps}>
         {React.Children.map(children, (child) => {
