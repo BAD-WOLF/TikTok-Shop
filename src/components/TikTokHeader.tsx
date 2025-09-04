@@ -7,6 +7,7 @@ interface TikTokHeaderProps {
   onBack?: () => void;
   notificationCount?: number;
   onMenuClick?: () => void;
+  isRefreshing?: boolean;
 }
 
 export const TikTokHeader = ({ 
@@ -14,12 +15,23 @@ export const TikTokHeader = ({
   showBack = false, 
   onBack, 
   notificationCount = 5,
-  onMenuClick 
+  onMenuClick,
+  isRefreshing = false
 }: TikTokHeaderProps) => {
   return (
-    <header className="bg-card">
-      {/* Top row with X, title (if showBack), notification and menu */}
-      <div className="flex items-center justify-between p-4">
+    <>
+      <style>{`
+        @keyframes tiktok-spin {
+          0% { transform: translateX(0px); }
+          25% { transform: translateX(16px); }
+          50% { transform: translateX(0px); }
+          75% { transform: translateX(-16px); }
+          100% { transform: translateX(0px); }
+        }
+      `}</style>
+      
+      {/* Top row with X, title (if showBack), notification and menu - FIXED */}
+      <div className="fixed top-0 left-0 right-0 z-50 bg-card flex items-center justify-between p-4">
         <div className="flex items-center">
           <Button variant="ghost" className="p-3" onClick={onBack}>
             <X className="h-6 w-6" />
@@ -55,6 +67,33 @@ export const TikTokHeader = ({
         )}
       </div>
       
+      {/* Spacer para compensar o header fixo */}
+      <div className="h-20"></div>
+      
+      <header className="bg-card">
+      
+      {/* Animation between top row and title */}
+      {isRefreshing && !showBack && (
+        <div className="flex justify-center py-2">
+          <div className="relative w-6 h-3 flex items-center justify-center">
+            <div 
+              className="absolute w-2 h-2 bg-red-500 rounded-full"
+              style={{
+                left: '2px',
+                animation: 'tiktok-spin 1.2s linear infinite'
+              }}
+            />
+            <div 
+              className="absolute w-2 h-2 bg-blue-500 rounded-full"
+              style={{
+                left: '2px',
+                animation: 'tiktok-spin 1.2s linear infinite 0.6s'
+              }}
+            />
+          </div>
+        </div>
+      )}
+      
       {/* Bottom row with title (only when not showBack) */}
       {!showBack && (
         <div className="px-4 pb-4">
@@ -71,5 +110,6 @@ export const TikTokHeader = ({
         </div>
       )}
     </header>
+    </>
   );
 };

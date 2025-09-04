@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react";
-import { TikTokHeader } from "@/components/TikTokHeader";
+import { TikTokFixedHeader } from "@/components/TikTokFixedHeader";
+import { TikTokMovableHeader } from "@/components/TikTokMovableHeader";
 import { CreatorCenterHome } from "@/components/CreatorCenterHome";
 import { PerformanceData } from "@/components/PerformanceData";
 import { BottomNavigation } from "@/components/BottomNavigation";
+import { PullToRefresh } from "@/components/PullToRefresh";
 import SettingsMenu from "@/components/SettingsMenu";
 import { ProductEditModal } from "@/components/ProductEditModal";
 import carpetImage from "@/assets/carpet-purple.png";
@@ -27,6 +29,7 @@ const Index = () => {
   const [currency, setCurrency] = useState('R$');
   const [language, setLanguage] = useState<'pt' | 'en'>('pt');
   const [activePeriod, setActivePeriod] = useState<'today' | 'last7days'>('today');
+  const [isRefreshing, setIsRefreshing] = useState(false);
 
   const [homeDataToday, setHomeDataToday] = useState({
     gmv: '373',
@@ -138,35 +141,60 @@ const Index = () => {
     return language === 'pt' ? 'Central de criadores do TikTok Shop' : 'TikTok Shop Creator Center';
   };
 
+  const handleRefresh = async () => {
+    // Simula uma atualização de dados
+    await new Promise(resolve => setTimeout(resolve, 1500));
+    
+    // Aqui você pode adicionar lógica para recarregar dados reais
+    // Por exemplo: refetch de APIs, atualização de estado, etc.
+    console.log('Dados atualizados!');
+    
+    // Mostra a animação no cabeçalho fixo por 0,5 segundos
+    setIsRefreshing(true);
+    setTimeout(() => {
+      setIsRefreshing(false);
+    }, 500);
+  };
+
   return (
     <div className="h-screen flex flex-col bg-background tiktok-fade-in">
-      <TikTokHeader 
+      <TikTokFixedHeader 
         title={getTitle()}
         showBack={showPerformance}
         onBack={() => setShowPerformance(false)}
         onMenuClick={() => setSettingsOpen(true)}
       />
-
-      {showPerformance ? (
-        <PerformanceData
-          currency={currency}
-          language={language}
-          data={getCurrentPerformanceData()}
-          products={products}
-          onEditProduct={handleEditProduct}
-          activePeriod={activePeriod}
-          onPeriodChange={setActivePeriod}
+      
+      <PullToRefresh 
+        onRefresh={handleRefresh}
+        className="flex-1"
+      >
+        <TikTokMovableHeader 
+          title={getTitle()}
+          showBack={showPerformance}
         />
-      ) : (
-        <CreatorCenterHome
-          currency={currency}
-          language={language}
-          data={getCurrentHomeData()}
-          activePeriod={activePeriod}
-          onPeriodChange={setActivePeriod}
-          onPerformanceClick={() => setShowPerformance(true)}
-        />
-      )}
+        
+        {showPerformance ? (
+          <PerformanceData
+            currency={currency}
+            language={language}
+            data={getCurrentPerformanceData()}
+            products={products}
+            onEditProduct={handleEditProduct}
+            activePeriod={activePeriod}
+            onPeriodChange={setActivePeriod}
+          />
+        ) : (
+          <CreatorCenterHome
+            currency={currency}
+            language={language}
+            data={getCurrentHomeData()}
+            activePeriod={activePeriod}
+            onPeriodChange={setActivePeriod}
+            onPerformanceClick={() => setShowPerformance(true)}
+          />
+        )}
+      </PullToRefresh>
 
       <BottomNavigation
         activeTab={activeTab}
