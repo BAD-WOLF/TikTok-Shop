@@ -7,6 +7,7 @@ import { BottomNavigation } from "@/components/BottomNavigation";
 import { PullToRefresh } from "@/components/PullToRefresh";
 import SettingsMenu from "@/components/SettingsMenu";
 import { ProductEditModal } from "@/components/ProductEditModal";
+import { TikTokCreate } from "@/components/TikTokIcons";
 import carpetImage from "@/assets/carpet-purple.png";
 import headphonesImage from "@/assets/headphones-silver.png";
 import sewingMachineImage from "@/assets/sewing-machine-pink.png";
@@ -195,6 +196,16 @@ const Index = () => {
           />
         )}
       </PullToRefresh>
+      
+      {/* Central Floating Create Button - Only show on home */}
+      {!showPerformance && (
+          <button
+            className="fixed bottom-16 left-1/2 transform -translate-x-1/2 px-4 py-2 rounded-full bg-white hover:bg-gray-100 text-black shadow-lg z-50 flex items-center justify-center gap-2 border border-gray-200"
+          >
+            <TikTokCreate className="h-5 w-5" />
+            <span className="text-base font-medium">Criar agora</span>
+          </button>
+        )}
 
       <BottomNavigation
         activeTab={activeTab}

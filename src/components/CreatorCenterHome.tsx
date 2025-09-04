@@ -66,8 +66,9 @@ export const CreatorCenterHome = ({ currency, language, data, activePeriod, onPe
   const t = texts[language];
 
   return (
-    <div className="flex-1 bg-background tiktok-scroll overflow-y-auto">
-      <div className="p-3">
+    <>
+      <div className="flex-1 bg-background tiktok-scroll overflow-y-auto">
+        <div className="p-3">
         {/* Search Bar - Only visible when language is English */}
         {language === 'en' && (
           <div className="relative mb-4">
@@ -137,31 +138,31 @@ export const CreatorCenterHome = ({ currency, language, data, activePeriod, onPe
         <div className="grid grid-cols-5 gap-3">
           <div className="flex flex-col items-center">
             <div className="w-14 h-14 bg-muted rounded-xl flex items-center justify-center mb-2">
-              <TikTokShoppingBag className="h-5 w-5" />
+              <TikTokShoppingBag className="h-16 w-16" />
             </div>
             <span className="text-xs text-center">{t.marketplace}</span>
           </div>
           <div className="flex flex-col items-center">
             <div className="w-14 h-14 bg-muted rounded-xl flex items-center justify-center mb-2">
-              <TikTokUsers className="h-5 w-5" />
+              <TikTokUsers className="h-16 w-16" />
             </div>
             <span className="text-xs text-center">{t.manageShowcase}</span>
           </div>
           <div className="flex flex-col items-center">
             <div className="w-14 h-14 bg-muted rounded-xl flex items-center justify-center mb-2">
-              <TikTokDollarSign className="h-5 w-5" />
+              <TikTokDollarSign className="h-16 w-16" />
             </div>
             <span className="text-xs text-center">{t.revenue}</span>
           </div>
           <div className="flex flex-col items-center">
             <div className="w-14 h-14 bg-muted rounded-xl flex items-center justify-center mb-2">
-              <TikTokGift className="h-5 w-5" />
+              <TikTokGift className="h-16 w-16" />
             </div>
             <span className="text-xs text-center">{t.manageSamples}</span>
           </div>
           <div className="flex flex-col items-center">
             <div className="w-14 h-14 bg-muted rounded-xl flex items-center justify-center mb-2">
-              <TikTokMail className="h-5 w-5" />
+              <TikTokMail className="h-16 w-16" />
             </div>
             <span className="text-xs text-center">{t.collabInvites}</span>
           </div>
@@ -193,15 +194,8 @@ export const CreatorCenterHome = ({ currency, language, data, activePeriod, onPe
           </div>
         </Card>
 
+        </div>
       </div>
-      
-      {/* Central Floating Create Button */}
-      <Button 
-        className="fixed bottom-16 left-1/2 transform -translate-x-1/2 px-8 py-4 rounded-full bg-white hover:bg-gray-100 text-black shadow-lg z-50 flex items-center justify-center gap-2 border border-gray-200"
-      >
-        <TikTokCreate className="h-5 w-5" />
-        <span className="text-base font-medium">Criar agora</span>
-      </Button>
-    </div>
+    </>
   );
 };

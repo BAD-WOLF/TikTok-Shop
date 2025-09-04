@@ -45,9 +45,9 @@ export const BottomNavigation = ({ activeTab, onTabChange, language }: BottomNav
             )}
           >
             {Icon === 'growth' ? (
-              <TikTokAnalytics className="h-3 w-3 mb-0.5" />
+              <TikTokAnalytics className="h-4 w-4 mb-0.5" />
             ) : (
-              <Icon className="h-3 w-3 mb-0.5" />
+              <Icon className="h-4 w-4 mb-0.5" />
             )}
             <span className="text-[10px] leading-tight">{label}</span>
           </button>
