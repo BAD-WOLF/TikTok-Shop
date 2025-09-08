@@ -209,19 +209,19 @@ export const PerformanceData = ({
         <div className="flex space-x-4 mb-4">
           <div className="flex flex-col items-center">
             <div className="w-12 h-12 bg-muted rounded-lg flex items-center justify-center mb-2">
-              <TikTokPackage className="w-8 h-8" />
+              <TikTokPackage className="w-18 h-18" />
             </div>
             <span className="text-sm">{t.product}</span>
           </div>
           <div className="flex flex-col items-center">
             <div className="w-12 h-12 bg-muted rounded-lg flex items-center justify-center mb-2 relative">
-              <TikTokPlay className="w-8 h-8" />
+              <TikTokPlay className="w-18 h-18" />
             </div>
             <span className="text-sm">{t.video}</span>
           </div>
           <div className="flex flex-col items-center">
             <div className="w-12 h-12 bg-muted rounded-lg flex items-center justify-center mb-2">
-              <TikTokTv className="w-8 h-8" />
+              <TikTokTv className="w-18 h-18" />
             </div>
             <span className="text-sm">{t.live}</span>
           </div>
