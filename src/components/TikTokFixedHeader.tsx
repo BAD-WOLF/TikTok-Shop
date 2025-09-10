@@ -10,11 +10,11 @@ interface TikTokFixedHeaderProps {
   showAnimation?: boolean;
 }
 
-export const TikTokFixedHeader = ({ 
-  title, 
-  showBack = false, 
-  onBack, 
-  notificationCount = 5,
+export const TikTokFixedHeader = ({
+  title,
+  showBack = false,
+  onBack,
+  notificationCount = 22,
   onMenuClick,
   showAnimation = false
 }: TikTokFixedHeaderProps) => {
@@ -26,7 +26,7 @@ export const TikTokFixedHeader = ({
           <X className="h-6 w-6" />
         </Button>
       </div>
-      
+
       {showBack && (
         <div className="absolute left-1/2 transform -translate-x-1/2">
           <h1 className="text-base font-semibold text-foreground">
@@ -34,40 +34,40 @@ export const TikTokFixedHeader = ({
           </h1>
         </div>
       )}
-      
+
       <div className="flex items-center">
         {/* Placeholder para manter o espaçamento */}
       </div>
-      
+
       {!showBack && (
         <div className="flex items-center space-x-3">
-          <div className="relative p-2">
-            <Bell className="h-6 w-6 text-foreground" />
-            {notificationCount > 0 && (
-              <span className="absolute -top-1 -right-1 bg-primary text-primary-foreground text-xs rounded-full h-5 w-5 flex items-center justify-center">
-                {notificationCount}
-              </span>
-            )}
-          </div>
-          <Button variant="ghost" className="p-3" onClick={onMenuClick}>
+            <div className="relative p-2 -right-2">
+                <Bell className="h-5 w-5 text-foreground" strokeWidth={2.5} />
+                {notificationCount > 0 && (
+                    <span className="absolute -top-1 -right-1 bg-[#FA5171] text-white text-[10px] font-medium rounded-full h-5 w-2/3 flex items-center justify-center">
+                        {notificationCount}
+                    </span>
+                )}
+            </div>
+            <Button variant="ghost" className="p-3" onClick={onMenuClick}>
             <Menu className="h-7 w-7" />
           </Button>
         </div>
       )}
       </div>
-        
+
         {/* Animação de refresh */}
         {showAnimation && (
           <div className="flex justify-center py-2">
             <div className="relative w-6 h-2">
-              <div 
-                className="absolute w-2 h-2 bg-red-500 rounded-full" 
+              <div
+                className="absolute w-2 h-2 bg-red-500 rounded-full"
                 style={{
                   animation: 'move-right 1.5s ease-in-out infinite'
                 }}
               ></div>
-              <div 
-                className="absolute w-2 h-2 bg-blue-500 rounded-full" 
+              <div
+                className="absolute w-2 h-2 bg-blue-500 rounded-full"
                 style={{
                   animation: 'move-left 1.5s ease-in-out infinite'
                 }}
@@ -113,7 +113,7 @@ export const TikTokFixedHeader = ({
             }} />
           </div>
         )}
- 
+
       </div>
   );
 };
