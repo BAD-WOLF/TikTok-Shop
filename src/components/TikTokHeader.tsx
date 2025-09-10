@@ -84,7 +84,7 @@ export const TikTokHeader = ({
               }}
             />
             <div 
-              className="absolute w-2 h-2 bg-blue-500 rounded-full"
+              className="absolute w-2 h-2 bg-sky-300/60 rounded-full"
               style={{
                 left: '2px',
                 animation: 'tiktok-spin 1.2s linear infinite 0.6s'

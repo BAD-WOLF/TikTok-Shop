@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { TikTokChevronRight, TikTokAnalytics, TikTokEye, TikTokHeart, TikTokShare } from "./TikTokIcons";
+import { TikTokChevronRight, TikTokAnalytics, TikTokEye, TikTokHeart, TikTokShare, TikTokUsers } from "./TikTokIcons";
 import { TikTokPackage, TikTokPlay, TikTokTv } from "./icons";
 import { formatCurrency, formatCurrencyWithClass } from "@/lib/currency.tsx";
 
@@ -163,17 +163,17 @@ export const PerformanceData = ({
           <div className="flex-1 text-center">
             <p className="text-xs text-muted-foreground mb-1">{t.gmv}</p>
             <p className="text-lg font-bold mb-1">{formatCurrencyWithClass(currency, data.gmv)}</p>
-            <p className={`text-xs ${getPercentageColor('+70.74%')}`}>+70.74%</p>
+            <p className={`text-xs font-bold ${getPercentageColor('+70.74%')}`}>+70.74%</p>
           </div>
           <div className="flex-1 text-center">
             <p className="text-xs text-muted-foreground mb-1">{t.itemsSold}</p>
             <p className="text-lg font-bold mb-1"><span className="numeric-text">{data.itemsSold}</span></p>
-            <p className={`text-xs ${getPercentageColor('+77.78%')}`}>+77.78%</p>
+            <p className={`text-xs font-bold ${getPercentageColor('+77.78%')}`}>+77.78%</p>
           </div>
           <div className="flex-1 text-center">
             <p className="text-xs text-muted-foreground mb-1">{t.estimatedCommission}</p>
             <p className="text-lg font-bold mb-1">{formatCurrencyWithClass(currency, data.estimatedCommission)}</p>
-            <p className={`text-xs ${getPercentageColor('+32.09%')}`}>+32.09%</p>
+            <p className={`text-xs font-bold ${getPercentageColor('+32.09%')}`}>+32.09%</p>
           </div>
         </div>
         
@@ -182,17 +182,17 @@ export const PerformanceData = ({
           <div className="flex-1 text-center">
             <p className="text-xs text-muted-foreground mb-1">{t.commissionBase}</p>
             <p className="text-lg font-bold mb-1">{formatCurrencyWithClass(currency, data.commissionBase)}</p>
-            <p className={`text-xs ${getPercentageColor('+89.33%')}`}>+89.33%</p>
+            <p className={`text-xs font-bold ${getPercentageColor('+89.33%')}`}>+89.33%</p>
           </div>
           <div className="flex-1 text-center">
             <p className="text-xs text-muted-foreground mb-1">{t.productViews}</p>
             <p className="text-lg font-bold mb-1"><span className="numeric-text">{data.productViews}</span></p>
-            <p className={`text-xs ${getPercentageColor('+74.67%')}`}>+74.67%</p>
+            <p className={`text-xs font-bold ${getPercentageColor('+74.67%')}`}>+74.67%</p>
           </div>
           <div className="flex-1 text-center">
             <p className="text-xs text-muted-foreground mb-1">{t.productClicks}</p>
             <p className="text-lg font-bold mb-1"><span className="numeric-text">{data.productClicks}</span></p>
-            <p className={`text-xs ${getPercentageColor('+50.99%')}`}>+50.99%</p>
+            <p className={`text-xs font-bold ${getPercentageColor('+50.99%')}`}>+50.99%</p>
           </div>
         </div>
 
@@ -209,19 +209,19 @@ export const PerformanceData = ({
         <div className="flex space-x-4 mb-4">
           <div className="flex flex-col items-center">
             <div className="w-12 h-12 bg-muted rounded-lg flex items-center justify-center mb-2">
-              <TikTokPackage className="w-8 h-8" />
+              <TikTokUsers className="w-18 h-18" />
             </div>
             <span className="text-sm">{t.product}</span>
           </div>
           <div className="flex flex-col items-center">
             <div className="w-12 h-12 bg-muted rounded-lg flex items-center justify-center mb-2 relative">
-              <TikTokPlay className="w-8 h-8" />
+              <TikTokPlay className="w-18 h-18" />
             </div>
             <span className="text-sm">{t.video}</span>
           </div>
           <div className="flex flex-col items-center">
             <div className="w-12 h-12 bg-muted rounded-lg flex items-center justify-center mb-2">
-              <TikTokTv className="w-8 h-8" />
+              <TikTokTv className="w-18 h-18" />
             </div>
             <span className="text-sm">{t.live}</span>
           </div>

@@ -19,13 +19,13 @@ export const TikTokMovableHeader = ({
         <div className="flex justify-center py-2">
           <div className="relative w-4 h-2">
             <div 
-              className="absolute w-2 h-2 bg-red-500 rounded-full" 
+              className="absolute w-2 h-2 bg-red-500/90 rounded-full" 
               style={{
                 animation: 'move-right 1.5s ease-in-out infinite'
               }}
             ></div>
             <div 
-              className="absolute w-2 h-2 bg-blue-500 rounded-full" 
+              className="absolute w-2 h-2 bg-sky-300/90 rounded-full" 
               style={{
                 animation: 'move-left 1.5s ease-in-out infinite'
               }}

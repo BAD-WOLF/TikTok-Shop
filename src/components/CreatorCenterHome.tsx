@@ -138,31 +138,31 @@ export const CreatorCenterHome = ({ currency, language, data, activePeriod, onPe
         <div className="grid grid-cols-5 gap-3">
           <div className="flex flex-col items-center">
             <div className="w-14 h-14 bg-muted rounded-xl flex items-center justify-center mb-2">
-              <TikTokShoppingBag className="h-16 w-16" />
+              <TikTokShoppingBag className="h-18 w-18" />
             </div>
             <span className="text-xs text-center">{t.marketplace}</span>
           </div>
           <div className="flex flex-col items-center">
             <div className="w-14 h-14 bg-muted rounded-xl flex items-center justify-center mb-2">
-              <TikTokUsers className="h-16 w-16" />
+              <TikTokUsers className="h-18 w-18" />
             </div>
             <span className="text-xs text-center">{t.manageShowcase}</span>
           </div>
           <div className="flex flex-col items-center">
             <div className="w-14 h-14 bg-muted rounded-xl flex items-center justify-center mb-2">
-              <TikTokDollarSign className="h-16 w-16" />
+              <TikTokDollarSign className="h-18 w-18" />
             </div>
             <span className="text-xs text-center">{t.revenue}</span>
           </div>
           <div className="flex flex-col items-center">
             <div className="w-14 h-14 bg-muted rounded-xl flex items-center justify-center mb-2">
-              <TikTokGift className="h-16 w-16" />
+              <TikTokGift className="h-18 w-18" />
             </div>
             <span className="text-xs text-center">{t.manageSamples}</span>
           </div>
           <div className="flex flex-col items-center">
             <div className="w-14 h-14 bg-muted rounded-xl flex items-center justify-center mb-2">
-              <TikTokMail className="h-16 w-16" />
+              <TikTokMail className="h-18 w-18" />
             </div>
             <span className="text-xs text-center">{t.collabInvites}</span>
           </div>
