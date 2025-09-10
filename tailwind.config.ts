@@ -18,9 +18,21 @@ export default {
 			}
 		},
 		extend: {
-			fontFamily: {
-				sans: ['Proxima Nova', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif'],
-			},
+            fontFamily: {
+                sans: [
+                    '-apple-system',
+                    'BlinkMacSystemFont',
+                    'Segoe UI',
+                    'Roboto',
+                    'Helvetica Neue',
+                    'Arial',
+                    'sans-serif',
+                ],
+                price: [
+                    'Arial',
+                    'sans-serif',
+                ],
+            },
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',

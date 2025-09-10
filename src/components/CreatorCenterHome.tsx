@@ -3,7 +3,7 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Search, Camera } from "lucide-react";
-import { formatCurrency, formatCurrencyWithClass } from "@/lib/currency.tsx";
+import { formatCurrencyWithClass } from "@/lib/currency.tsx";
 
 interface CreatorCenterHomeProps {
   currency: string;

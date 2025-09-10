@@ -1,31 +1,16 @@
-import React from 'react';
+import {ReactElement} from "react";
 
-/**
- * Formata valores monetários de acordo com a moeda
- * R$ - com espaço (R$ 100,00)
- * Outras moedas - sem espaço ($100.00, €100.00, £100.00)
- */
-export const formatCurrency = (currency: string, value: string): string => {
-  if (currency === 'R$') {
-    return `${currency} ${value}`;
-  }
-  return `${currency}${value}`;
-};
+export const formatCurrencyWithClass: (currency: string, value: string) => ReactElement = (
+    currency: string,
+    value: string
+): ReactElement => {
+    if (currency === 'R$') {
+        return (
+            <span className="font-price">{currency} <span className="font-sans">{value}</span></span>
+        );
+    }
 
-/**
- * Formata valores monetários com classe CSS para símbolos de moeda
- */
-export const formatCurrencyWithClass = (currency: string, value: string): React.ReactElement => {
-  if (currency === 'R$') {
     return (
-      <>
-        <span className="currency-symbol">{currency}</span> <span className="numeric-text">{value}</span>
-      </>
+        <span className="font-price">{currency}<span className="font-sans">{value}</span></span>
     );
-  }
-  return (
-    <>
-      <span className="currency-symbol">{currency}</span><span className="numeric-text">{value}</span>
-    </>
-  );
 };

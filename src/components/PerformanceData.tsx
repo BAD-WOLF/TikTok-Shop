@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { TikTokChevronRight, TikTokAnalytics, TikTokEye, TikTokHeart, TikTokShare, TikTokUsers } from "./TikTokIcons";
 import { TikTokPackage, TikTokPlay, TikTokTv } from "./icons";
-import { formatCurrency, formatCurrencyWithClass } from "@/lib/currency.tsx";
+import { formatCurrencyWithClass } from "@/lib/currency.tsx";
 
 interface Product {
   id: string;
