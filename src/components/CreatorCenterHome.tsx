@@ -1,201 +1,220 @@
-import { TikTokChevronRight, TikTokShoppingBag, TikTokVideo, TikTokDollarSign, TikTokGift, TikTokMail, TikTokUsers, TikTokCreate } from "./TikTokIcons";
-import { Card } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Search, Camera } from "lucide-react";
-import { formatCurrencyWithClass } from "@/lib/currency.tsx";
+import {
+    TikTokChevronRight,
+    TikTokShoppingBag,
+    TikTokVideo,
+    TikTokDollarSign,
+    TikTokGift,
+    TikTokMail,
+    TikTokUsers,
+    TikTokCreate
+} from "./TikTokIcons";
+import {Card} from "@/components/ui/card";
+import {Button} from "@/components/ui/button";
+import {Input} from "@/components/ui/input";
+import {Search, Camera} from "lucide-react";
+import {formatCurrencyWithClass} from "@/lib/currency.tsx";
 
-interface CreatorCenterHomeProps {
-  currency: string;
-  language: 'pt' | 'en';
-  data: {
-    gmv: string;
-    commission: string;
-    views: string;
-    campaignValue: string;
-  };
-  activePeriod: 'today' | 'last7days';
-  onPeriodChange: (period: 'today' | 'last7days') => void;
-  onPerformanceClick: () => void;
+type CreatorCenterHomeProps = {
+    currency: string;
+    language: 'pt' | 'en';
+    data: {
+        gmv: string;
+        commission: string;
+        views?: string;
+        campaignValue: string;
+    };
+    activePeriod: 'today' | 'last7days';
+    onPeriodChange: (period: 'today' | 'last7days') => void;
+    onPerformanceClick: () => void;
 }
 
-export const CreatorCenterHome = ({ currency, language, data, activePeriod, onPeriodChange, onPerformanceClick }: CreatorCenterHomeProps) => {
-  const texts = {
-    pt: {
-      performanceData: "Dados de desempenho",
-      today: "Hoje",
-      last7days: "Últimos 7 dias",
-      gmv: "GMV",
-      estimatedCommission: "Comissão estima...",
-      views: "Visualizações do...",
-      toolkit: "Kit de ferramentas TikTok Shop",
-      marketplace: "Mercado de produtos",
-      manageShowcase: "Gerenciar vitrine",
-      revenue: "Receita",
-      manageSamples: "Gerenciar amostras",
-      collabInvites: "Convites de colaboração",
-      increaseAudience: "Aumente seu público e sua receita",
-      pending: "Pendente",
-      wantToGrowMore: "Quer crescer mais? Publique vídeos curtos diariamente!",
-      start: "Iniciar",
-      ends: "Termina em 07/30",
-      createNow: "Criar agora"
-    },
-    en: {
-      performanceData: "Performance Data",
-      today: "Today",
-      last7days: "Last 7 days",
-      gmv: "GMV",
-      estimatedCommission: "Est. commission",
-      views: "Product views",
-      toolkit: "TikTok Shop Toolkit",
-      marketplace: "Product Marketplace",
-      manageShowcase: "Manage Showcase",
-      revenue: "Revenue",
-      manageSamples: "Manage Samples",
-      collabInvites: "Collaboration Invites",
-      increaseAudience: "Increase your audience and revenue",
-      pending: "Pending",
-      wantToGrowMore: "Want to grow more? Post short videos daily!",
-      start: "Start",
-      ends: "Ends on 07/30",
-      createNow: "Create now"
-    }
-  };
+export const CreatorCenterHome = ({
+    currency,
+    language,
+    data,
+    activePeriod,
+    onPeriodChange,
+    onPerformanceClick
+}: CreatorCenterHomeProps) => {
+    const texts = {
+        pt: {
+            performanceData: "Dados de desempenho",
+            today: "Hoje",
+            last7days: "Últimos 7 dias",
+            gmv: "GMV",
+            estimatedCommission: "Comissão estima...",
+            views: "Visualizações do...",
+            toolkit: "Kit de ferramentas TikTok Shop",
+            marketplace: "Mercado de produtos",
+            manageShowcase: "Gerenciar vitrine",
+            revenue: "Receita",
+            manageSamples: "Gerenciar amostras",
+            collabInvites: "Convites de colaboração",
+            increaseAudience: "Aumente seu público e sua receita",
+            pending: "Pendente",
+            wantToGrowMore: "Quer crescer mais? Publique vídeos curtos diariamente!",
+            start: "Iniciar",
+            ends: "Termina em 07/30",
+            createNow: "Criar agora"
+        },
+        en: {
+            performanceData: "Performance Data",
+            today: "Today",
+            last7days: "Last 7 days",
+            gmv: "GMV",
+            estimatedCommission: "Est. commission",
+            views: "Product views",
+            toolkit: "TikTok Shop Toolkit",
+            marketplace: "Product Marketplace",
+            manageShowcase: "Manage Showcase",
+            revenue: "Revenue",
+            manageSamples: "Manage Samples",
+            collabInvites: "Collaboration Invites",
+            increaseAudience: "Increase your audience and revenue",
+            pending: "Pending",
+            wantToGrowMore: "Want to grow more? Post short videos daily!",
+            start: "Start",
+            ends: "Ends on 07/30",
+            createNow: "Create now"
+        }
+    };
 
-  const t = texts[language];
+    const t = texts[language];
 
-  return (
-    <>
-      <div className="flex-1 bg-background tiktok-scroll overflow-y-auto">
-        <div className="p-3">
-        {/* Search Bar - Only visible when language is English */}
-        {language === 'en' && (
-          <div className="relative mb-4">
-            <div className="flex items-center bg-muted rounded-lg px-3 py-0.1">
-              <Search className="h-9 w-9 text-muted-foreground mr-2" />
-              <Input 
-                placeholder="Zooone Eye Vitamins"
-                className="border-0 bg-transparent p-0 text-sm placeholder:text-muted-foreground focus-visible:ring-0 focus-visible:ring-offset-0"
-                readOnly
-              />
-              <Camera className="h-9 w-9 text-muted-foreground ml-2" />
-              <div className="w-px h-4 bg-border mx-2"></div>
-              <span className="text-sm font-medium">Search</span>
+    return (
+        <>
+            <div className="flex-1 bg-background tiktok-scroll overflow-y-auto">
+                <div className="p-3">
+                    {/* Search Bar - Only visible when language is English */}
+                    {language === 'en' && (
+                        <div className="relative mb-4">
+                            <div className="flex items-center bg-muted rounded-lg px-3 py-0.1">
+                                <Search className="h-9 w-9 text-muted-foreground mr-2"/>
+                                <Input
+                                    placeholder="Zooone Eye Vitamins"
+                                    className="border-0 bg-transparent p-0 text-sm placeholder:text-muted-foreground focus-visible:ring-0 focus-visible:ring-offset-0"
+                                    readOnly
+                                />
+                                <Camera className="h-9 w-9 text-muted-foreground ml-2"/>
+                                <div className="w-px h-4 bg-border mx-2"></div>
+                                <span className="text-sm font-medium">Search</span>
+                            </div>
+                        </div>
+                    )}
+
+                    <div className="flex items-center justify-between mb-3 cursor-pointer" onClick={onPerformanceClick}>
+                        <h2 className="text-lg font-semibold">{t.performanceData}</h2>
+                        <TikTokChevronRight className="h-4 w-4 text-muted-foreground"/>
+                    </div>
+
+                    <div className="flex mb-3">
+                        <Button
+                            variant={activePeriod === 'today' ? 'secondary' : 'outline'}
+                            size="sm"
+                            className={`text-xs px-3 py-1 rounded-r-none border-r-0 ${activePeriod === 'today' ?
+                                'bg-muted text-muted-foreground' : ''}`}
+                            onClick={() => onPeriodChange('today')}
+                        >
+                            {t.today}
+                        </Button>
+                        <Button
+                            variant={activePeriod === 'last7days' ? 'secondary' : 'outline'}
+                            size="sm"
+                            className={`text-xs px-3 py-1 ${activePeriod === 'last7days' ?
+                                'bg-muted text-muted-foreground' : ''}`}
+                            onClick={() => onPeriodChange('last7days')}
+                        >
+                            {t.last7days}
+                        </Button>
+                    </div>
+
+                    <div className="grid grid-cols-3 gap-3 mb-4">
+                        <div className="text-left">
+                            <p className="text-xs text-muted-foreground mb-1">{t.gmv}</p>
+                            <p className="text-xl font-bold">{formatCurrencyWithClass(currency, data.gmv)}</p>
+                        </div>
+                        <div className="text-left">
+                            <p className="text-xs text-muted-foreground mb-1">{t.estimatedCommission}</p>
+                            <p className="text-xl font-bold">{formatCurrencyWithClass(currency, data.commission)}</p>
+                        </div>
+                        <div className="text-left">
+                            <p className="text-xs text-muted-foreground mb-1">{t.views}</p>
+                            <p className="text-xl font-bold">{formatCurrencyWithClass(null, data.views)}</p>
+                        </div>
+                    </div>
+                </div>
+
+                {/* Horizontal division */}
+                <div className="border-t-8 border-gray-100 -mx-6 mb-6"></div>
+
+                <div className="p-3">
+                    <div className="flex items-center justify-between mb-3">
+                        <h2 className="text-lg font-semibold">{t.toolkit}</h2>
+                        <TikTokChevronRight className="h-4 w-4 text-muted-foreground"/>
+                    </div>
+
+                    <div className="grid grid-cols-5 gap-3">
+                        <div className="flex flex-col items-center">
+                            <div className="w-14 h-14 bg-muted rounded-xl flex items-center justify-center mb-2">
+                                <TikTokShoppingBag className="h-18 w-18"/>
+                            </div>
+                            <span className="text-xs text-center">{t.marketplace}</span>
+                        </div>
+                        <div className="flex flex-col items-center">
+                            <div className="w-14 h-14 bg-muted rounded-xl flex items-center justify-center mb-2">
+                                <TikTokUsers className="h-18 w-18"/>
+                            </div>
+                            <span className="text-xs text-center">{t.manageShowcase}</span>
+                        </div>
+                        <div className="flex flex-col items-center">
+                            <div className="w-14 h-14 bg-muted rounded-xl flex items-center justify-center mb-2">
+                                <TikTokDollarSign className="h-18 w-18"/>
+                            </div>
+                            <span className="text-xs text-center">{t.revenue}</span>
+                        </div>
+                        <div className="flex flex-col items-center">
+                            <div className="w-14 h-14 bg-muted rounded-xl flex items-center justify-center mb-2">
+                                <TikTokGift className="h-18 w-18"/>
+                            </div>
+                            <span className="text-xs text-center">{t.manageSamples}</span>
+                        </div>
+                        <div className="flex flex-col items-center">
+                            <div className="w-14 h-14 bg-muted rounded-xl flex items-center justify-center mb-2">
+                                <TikTokMail className="h-18 w-18"/>
+                            </div>
+                            <span className="text-xs text-center">{t.collabInvites}</span>
+                        </div>
+                    </div>
+                </div>
+
+                {/* Horizontal division */}
+                <div className="border-t-8 border-gray-100 -mx-6 my-6"></div>
+
+                <div className="p-3">
+                    <div className="flex items-center justify-between mb-3">
+                        <h2 className="text-lg font-semibold">{t.increaseAudience}</h2>
+                        <TikTokChevronRight className="h-4 w-4 text-muted-foreground"/>
+                    </div>
+
+                    <Card className="p-3 border border-border">
+                        <div className="flex justify-between items-start mb-2">
+                            <span className="text-xs text-muted-foreground">{t.pending}</span>
+                            <Button className="bg-primary text-primary-foreground rounded-full px-6 py-2 text-sm">
+                                {t.start}
+                            </Button>
+                        </div>
+                        <p className="text-sm font-medium mb-2">
+                            {t.wantToGrowMore} 📈
+                        </p>
+                        <div className="flex items-center justify-between">
+                            <span
+                                className="text-xs text-primary">{formatCurrencyWithClass(currency, data.campaignValue)}</span>
+                            <span className="text-xs text-muted-foreground">{t.ends}</span>
+                        </div>
+                    </Card>
+
+                </div>
             </div>
-          </div>
-        )}
-        
-        <div className="flex items-center justify-between mb-3 cursor-pointer" onClick={onPerformanceClick}>
-          <h2 className="text-lg font-semibold">{t.performanceData}</h2>
-          <TikTokChevronRight className="h-4 w-4 text-muted-foreground" />
-        </div>
-        
-        <div className="flex mb-3">
-          <Button 
-            variant={activePeriod === 'today' ? 'secondary' : 'outline'} 
-            size="sm" 
-            className={`text-xs px-3 py-1 rounded-r-none border-r-0 ${activePeriod === 'today' ? 'bg-muted text-muted-foreground' : ''}`}
-            onClick={() => onPeriodChange('today')}
-          >
-            {t.today}
-          </Button>
-          <Button 
-            variant={activePeriod === 'last7days' ? 'secondary' : 'outline'} 
-            size="sm"
-            className={`text-xs px-3 py-1 ${activePeriod === 'last7days' ? 'bg-muted text-muted-foreground' : ''}`}
-            onClick={() => onPeriodChange('last7days')}
-          >
-            {t.last7days}
-          </Button>
-        </div>
-
-        <div className="grid grid-cols-3 gap-3 mb-4">
-          <div className="text-left">
-            <p className="text-xs text-muted-foreground mb-1">{t.gmv}</p>
-            <p className="text-xl font-bold">{formatCurrencyWithClass(currency, data.gmv)}</p>
-          </div>
-          <div className="text-left">
-            <p className="text-xs text-muted-foreground mb-1">{t.estimatedCommission}</p>
-            <p className="text-xl font-bold">{formatCurrencyWithClass(currency, data.commission)}</p>
-          </div>
-          <div className="text-left">
-            <p className="text-xs text-muted-foreground mb-1">{t.views}</p>
-            <p className="text-xl font-bold"><span className="numeric-text">{data.views}</span></p>
-          </div>
-        </div>
-      </div>
-
-      {/* Horizontal division */}
-      <div className="border-t-8 border-gray-100 -mx-6 mb-6"></div>
-
-      <div className="p-3">
-        <div className="flex items-center justify-between mb-3">
-          <h2 className="text-lg font-semibold">{t.toolkit}</h2>
-          <TikTokChevronRight className="h-4 w-4 text-muted-foreground" />
-        </div>
-        
-        <div className="grid grid-cols-5 gap-3">
-          <div className="flex flex-col items-center">
-            <div className="w-14 h-14 bg-muted rounded-xl flex items-center justify-center mb-2">
-              <TikTokShoppingBag className="h-18 w-18" />
-            </div>
-            <span className="text-xs text-center">{t.marketplace}</span>
-          </div>
-          <div className="flex flex-col items-center">
-            <div className="w-14 h-14 bg-muted rounded-xl flex items-center justify-center mb-2">
-              <TikTokUsers className="h-18 w-18" />
-            </div>
-            <span className="text-xs text-center">{t.manageShowcase}</span>
-          </div>
-          <div className="flex flex-col items-center">
-            <div className="w-14 h-14 bg-muted rounded-xl flex items-center justify-center mb-2">
-              <TikTokDollarSign className="h-18 w-18" />
-            </div>
-            <span className="text-xs text-center">{t.revenue}</span>
-          </div>
-          <div className="flex flex-col items-center">
-            <div className="w-14 h-14 bg-muted rounded-xl flex items-center justify-center mb-2">
-              <TikTokGift className="h-18 w-18" />
-            </div>
-            <span className="text-xs text-center">{t.manageSamples}</span>
-          </div>
-          <div className="flex flex-col items-center">
-            <div className="w-14 h-14 bg-muted rounded-xl flex items-center justify-center mb-2">
-              <TikTokMail className="h-18 w-18" />
-            </div>
-            <span className="text-xs text-center">{t.collabInvites}</span>
-          </div>
-        </div>
-      </div>
-
-      {/* Horizontal division */}
-      <div className="border-t-8 border-gray-100 -mx-6 my-6"></div>
-
-      <div className="p-3">
-        <div className="flex items-center justify-between mb-3">
-          <h2 className="text-lg font-semibold">{t.increaseAudience}</h2>
-          <TikTokChevronRight className="h-4 w-4 text-muted-foreground" />
-        </div>
-        
-        <Card className="p-3 border border-border">
-          <div className="flex justify-between items-start mb-2">
-            <span className="text-xs text-muted-foreground">{t.pending}</span>
-            <Button className="bg-primary text-primary-foreground rounded-full px-6 py-2 text-sm">
-              {t.start}
-            </Button>
-          </div>
-          <p className="text-sm font-medium mb-2">
-            {t.wantToGrowMore} 📈
-          </p>
-          <div className="flex items-center justify-between">
-            <span className="text-xs text-primary">{formatCurrencyWithClass(currency, data.campaignValue)}</span>
-            <span className="text-xs text-muted-foreground">{t.ends}</span>
-          </div>
-        </Card>
-
-        </div>
-      </div>
-    </>
-  );
+        </>
+    );
 };
