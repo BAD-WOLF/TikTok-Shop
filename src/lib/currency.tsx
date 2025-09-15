@@ -1,8 +1,8 @@
 import {ReactElement} from "react";
 
-export const formatCurrencyWithClass: (currency: string, value: string) => ReactElement = (
+export const formatCurrencyWithClass: (currency: string, value: string|number) => ReactElement = (
     currency: string,
-    value: string
+    value: string|number
 ): ReactElement => {
     if (currency === 'R$') {
         return (

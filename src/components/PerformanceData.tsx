@@ -167,7 +167,7 @@ export const PerformanceData = ({
           </div>
           <div className="flex-1 text-center">
             <p className="text-xs text-muted-foreground mb-1">{t.itemsSold}</p>
-            <p className="text-lg font-bold mb-1"><span className="numeric-text">{data.itemsSold}</span></p>
+            <p className="text-lg font-bold mb-1">{formatCurrencyWithClass(null, data.itemsSold)}</p>
             <p className={`text-xs font-bold ${getPercentageColor('+77.78%')}`}>+77.78%</p>
           </div>
           <div className="flex-1 text-center">
@@ -186,12 +186,12 @@ export const PerformanceData = ({
           </div>
           <div className="flex-1 text-center">
             <p className="text-xs text-muted-foreground mb-1">{t.productViews}</p>
-            <p className="text-lg font-bold mb-1"><span className="numeric-text">{data.productViews}</span></p>
+            <p className="text-lg font-bold mb-1">{formatCurrencyWithClass(null, data.productViews)}</p>
             <p className={`text-xs font-bold ${getPercentageColor('+74.67%')}`}>+74.67%</p>
           </div>
           <div className="flex-1 text-center">
             <p className="text-xs text-muted-foreground mb-1">{t.productClicks}</p>
-            <p className="text-lg font-bold mb-1"><span className="numeric-text">{data.productClicks}</span></p>
+            <p className="text-lg font-bold mb-1">{formatCurrencyWithClass(null, data.productClicks)}</p>
             <p className={`text-xs font-bold ${getPercentageColor('+50.99%')}`}>+50.99%</p>
           </div>
         </div>
@@ -260,7 +260,7 @@ export const PerformanceData = ({
                     </div>
                     <div>
                       <p className="text-[9px] text-muted-foreground leading-tight">Itens vendidos<br/>&nbsp;</p>
-                      <p className="font-semibold text-xs mt-1"><span className="numeric-text">{product.sold}</span></p>
+                      <p className="font-semibold text-xs mt-1">{formatCurrencyWithClass(null, product.sold)}</p>
                     </div>
                   </div>
                 </div>
